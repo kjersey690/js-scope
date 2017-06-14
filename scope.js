@@ -2,22 +2,28 @@
 var isCookieJarOpen = null;
 
 function closeLid() {
-  /* answer here */
-}
+  isCookieJarOpen=false;
 
-function openLid() {
-  /* answer here */
 }
+function openLid() {
+   isCookieJarOpen=true;
+
+
+}
+closeLid();
+
+
+
 
 
 // Fill in the return value for the inner function to return a string, 'Hello World' using only the variables provided
 // in both inner and outer functions
 function outerFunction() {
-  var hello = 'Hello';
+  var hello = 'Hello World';
 
   function innerFunction() {
     var world = 'World';
-    return /* answer here */;
+    return hello;
   }
   return innerFunction();
 }
@@ -31,8 +37,8 @@ function addMatrixElements(matrix) {
 
   for(var i = 0; i < matrix.length; i++) {
     /* fix counter variables in the second loop */
-    for(var i = 0; i < matrix[i].length; i++) {
-      result = result + matrix[i][i];
+    for(var j = 0; j < matrix.length; j++) {
+      result = result + matrix[j][i];
     }
   }
   return result;
@@ -46,7 +52,7 @@ function sendDataToClient() {
   var userObject = {
     handle: 'neo',
     authenticated: false
-  }
+  };
 
   function authenticateUser(obj, username) {
     var userObject = {
@@ -54,13 +60,17 @@ function sendDataToClient() {
       authenticated: false
     };
 
-    if (userObject.handle === username) {
-      userObject.authenticated = true;
-      return userObject
+    if (obj.handle === username) {
+      obj.authenticated = true;
+      return obj;
     } else {
-      return userObject
+      return obj;
     }
   }
-  authenticateUser(userObject, 'neo')
-  return userObject
+
+
+  authenticateUser(userObject, "neo");
+
+  return userObject;
+
 }
